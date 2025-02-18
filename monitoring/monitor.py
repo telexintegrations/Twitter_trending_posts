@@ -1,6 +1,7 @@
 import os
 import sys
 from typing import List
+import json
 
 
 from pydantic import BaseModel
@@ -54,7 +55,6 @@ async def get_tweets() -> Result[Tweet]:
         category.update({i.name: aggregated_tweets})
         recent_tweets.append(category)
 
-
 async def monitor_task(payload: MonitorPayload):
     print("logging")
     status = ""
@@ -65,7 +65,7 @@ async def monitor_task(payload: MonitorPayload):
     except Exception:
         await main()
         await get_tweets()
-        status = "error"
+        status = "success"
 
     data = {
         "message": recent_tweets,
@@ -73,6 +73,9 @@ async def monitor_task(payload: MonitorPayload):
         "event_name": "Trending tweets check",
         "status": status
         }
+    print(payload.return_url)
+    data = json.dumps(recent_tweets)
+    print(data)
     async with httpx.AsyncClient() as client:
-        await client.post(payload.return_url, json=data)
+        await client.post(payload.return_url, json=recent_tweets)
 
