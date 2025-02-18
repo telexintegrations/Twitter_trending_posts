@@ -51,7 +51,7 @@ async def get_tweets() -> Result[Tweet]:
     for i in trends:
         tweets = await client.search_tweet(i.name, 'Latest', count=5)
         category = {}
-        aggregated_tweets = [tweet.text for tweet in tweets]
+        aggregated_tweets = [f"• {tweet.text}" for tweet in tweets]
         category.update({i.name: aggregated_tweets})
         recent_tweets.append(category)
 
@@ -67,15 +67,21 @@ async def monitor_task(payload: MonitorPayload):
         await get_tweets()
         status = "success"
 
+    formatted_tweets = []
+    for category in recent_tweets:
+        for trend, tweets in category.items():
+            tweet_text = f"{trend}\n" + "\n".join(tweets) + "\n"
+            formatted_tweets.append({
+                "trend": trend,
+                "tweet_text": tweet_text
+            })
+
     data = {
-        "message": recent_tweets,
+        "message": json.dumps(formatted_tweets, ensure_ascii=False),
         "username": "Twitter Monitor",
         "event_name": "Trending tweets check",
         "status": status
         }
-    print(payload.return_url)
-    data = json.dumps(recent_tweets)
-    print(data)
     async with httpx.AsyncClient() as client:
-        await client.post(payload.return_url, json=recent_tweets)
+        await client.post(payload.return_url, json=data, headers={"Content-Type": "application/json"})
 
