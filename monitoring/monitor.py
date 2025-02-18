@@ -63,6 +63,7 @@ async def monitor_task(payload: MonitorPayload):
         await get_tweets()
         status = "success"
     except Exception:
+        """ Retry """
         await main()
         await get_tweets()
         status = "success"
