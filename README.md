@@ -72,6 +72,11 @@ Twitter NG Trends Monitor is a FastAPI application that retrieves the 5 latest t
 
 ### Images
 
+### Images
+
+![Channel integration 1](images/250219_00h25m39s_screenshot.png)
+![Channel integration 2](images/250219_00h27m10s_screenshot.png)
+
 ### Monitor Task
 
 - **URL:** `/tick`
