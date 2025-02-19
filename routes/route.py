@@ -34,7 +34,7 @@ def get_integration_json(request: Request, status_code: int = status.HTTP_200_OK
 				"Runs every hour",
 				"Logs the tweets"
 			],
-			"integration_category": "Monitoring & logging",
+			"integration_category": "Monitoring & Logging",
 			"integration_type": "interval",
 			"settings": [{"label": "interval", "type": "text", "required": True, "default": "0 * * * *"}],
 			"tick_url": f"{base_url}/tick",

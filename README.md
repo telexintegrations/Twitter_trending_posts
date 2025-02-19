@@ -68,7 +68,7 @@ Twitter NG Trends Monitor is a FastAPI application that retrieves the 5 latest t
   			"Runs every hour",
   			"Logs the tweets"
   		],
-          "integration_category": "Monitoring & logging",
+          "integration_category": "Monitoring & Logging",
           "integration_type": "interval",
           "settings": [{"label": "interval", "type": "text", "required": True, "default": "0 * * * *"}],
           "tick_url": "http://127.0.0.1:8000/tick"
