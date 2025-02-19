@@ -60,7 +60,8 @@ Twitter NG Trends Monitor is a FastAPI application that retrieves the 5 latest t
           "descriptions": {
               "app_name": "Twitter NG Trends Monitor",
               "app_description": "Retrieves the 5 latest tweets from the top 10 trending tweets on Twitter Ng",
-              "app_url": "http://127.0.0.1:8000"
+              "app_url": "http://127.0.0.1:8000",
+  						"app_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzqnmyNlygtds5hKfmdUIXfzlFkqzQDuack_Y0ekPJpqaJO-R1JgbgszHZEApPN9oNPpw&usqp=CAU"
           },
           "integration_category": "Monitoring & logging",
           "integration_type": "interval",

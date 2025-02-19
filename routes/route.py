@@ -27,6 +27,7 @@ def get_integration_json(request: Request, status_code: int = status.HTTP_200_OK
 				"app_name": "Twitter NG Trends Monitor",
 				"app_description": "Retrieves the 5 latest tweets from the top 10 trending tweets on Twitter Ng",
 				"app_url": base_url,
+				"app_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzqnmyNlygtds5hKfmdUIXfzlFkqzQDuack_Y0ekPJpqaJO-R1JgbgszHZEApPN9oNPpw&usqp=CAU"
 			},
 			"integration_category": "Monitoring & logging",
 			"integration_type": "interval",
