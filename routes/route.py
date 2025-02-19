@@ -29,6 +29,11 @@ def get_integration_json(request: Request, status_code: int = status.HTTP_200_OK
 				"app_url": base_url,
 				"app_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzqnmyNlygtds5hKfmdUIXfzlFkqzQDuack_Y0ekPJpqaJO-R1JgbgszHZEApPN9oNPpw&usqp=CAU"
 			},
+    		"key_features": [
+				"Fetches the 5 latest tweets from the top 10 trending tweets on Twitter Ng",
+				"Runs every hour",
+				"Logs the tweets"
+			],
 			"integration_category": "Monitoring & logging",
 			"integration_type": "interval",
 			"settings": [{"label": "interval", "type": "text", "required": True, "default": "0 * * * *"}],
