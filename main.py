@@ -1,7 +1,6 @@
-from fastapi import FastAPI, Response
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from core.config import settings
 from routes.route import api_router
 
 app = FastAPI()
@@ -11,7 +10,7 @@ app.add_middleware(
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"]
-    )
+    allow_headers=["*"],
+)
 
 app.include_router(api_router)
