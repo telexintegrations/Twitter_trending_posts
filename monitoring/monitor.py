@@ -82,6 +82,7 @@ async def monitor_task(payload: MonitorPayload):
             await main()
             await get_tweets()
         except Exception as e:
+            await asyncio.sleep(900)
             logger.error(f"An error occurred: {e}")
             retries += 1
             if retries >= max_retries:
@@ -101,5 +102,6 @@ async def monitor_task(payload: MonitorPayload):
     }
     async with httpx.AsyncClient() as client:
         await client.post(
-            payload.return_url, json=data, headers={"Content-Type": "application/json"}
+            payload.return_url, json=data, headers={
+                "Content-Type": "application/json"}
         )

@@ -9,6 +9,7 @@ class Setting(BaseModel):
     required: bool
     default: str
 
+
 class MonitorPayload(BaseModel):
     channel_id: str
     return_url: str
