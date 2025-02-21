@@ -26,6 +26,7 @@ def get_integration_json(request: Request, status_code: int = status.HTTP_200_OK
             ],
             "integration_category": "Monitoring & Logging",
             "integration_type": "interval",
+            "is_active": True,
             "settings": [
                 {
                     "label": "interval",
